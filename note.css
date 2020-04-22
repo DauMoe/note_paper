@@ -1,0 +1,156 @@
+html, body {
+	margin: 0;
+}
+
+:root {
+	--background_color: #344A5F;
+	--note_color1: #ED8175;
+	--note_color2: #5DADE2;
+	--note_color3: #F29B0E;
+	--note_color4: #5ED0B9;
+
+	--border_note1: #F6CDC7;
+	--border_note2: #BEDEF3;
+	--border_note3: #F8C471;
+	--border_note4: #BEEDE3; 
+}
+
+@font-face {
+	src: url('./font/Raleway-Medium.ttf');
+	font-family: deadline;
+}
+
+@font-face {
+	src: url('./font/Raleway-Regular.ttf');
+	font-family: note_content;
+}
+
+.show_background {
+	background-color: var(--background_color);
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background-attachment: fixed;
+}
+
+.note_container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 10px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: calc(100% - 20px);
+}
+
+/* note paper */
+.note_paper {
+	position: relative;
+	background-color: var(--note_color1);
+	color: white;
+}
+
+.note_paper:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-width: 15px;
+	border-style: solid;
+	border-color: var(--background_color) var(--border_note1) var(--border_note1) var(--background_color);
+}
+
+.note_paper>h3 {
+	text-align: center;
+	margin: 10px 0px;
+	font-family: deadline;
+}
+
+.note_paper-detail {
+	position: absolute;
+	margin-bottom: 20px;
+	width: 100%;
+	background-color: var(--note_color1)
+}
+
+.note_paper-detail>label {
+	/* position: absolute; */
+	background-color: orange;
+}
+
+.note_paper-detail>label>p {
+	user-select: none;
+	word-wrap: break-word;
+	margin: 0 20px 0 40px;
+}
+
+.note_paper-detail>label>input {
+	display: none;
+}
+
+.note_delete {
+	position: absolute;
+	top: 50%;
+	right: 5px;
+	width: 20px;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+}
+
+/* custom checkbox */
+.note_checkbox {
+	position: absolute;
+	top: 50%;
+	left: 8px;
+	width: 15px;
+	height: 15px;
+	border-radius: 3px;
+	border: 2px solid white;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+}
+
+.note_checkbox:before {
+	display: none;
+	content: "";
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	width: 13px;
+	height: 13px;
+	background-color: white;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+}
+
+input:checked ~ .note_checkbox:before {
+	display: block;
+}
+
+
+
+
+
+
+
+
+
+#show_addNote {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 40px;
+}
